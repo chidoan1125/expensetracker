@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="auth-panel">
+    <div class="auth-form">
+      <h2>Account login</h2>
+      <div class="auth-fields">
+        <input id="auth-email" type="email" placeholder="Email" required>
+        <input id="auth-password" type="password" placeholder="Password" required>
+      </div>
+      <div class="auth-actions">
+        <button id="loginBtn" type="button">Login</button>
+        <button id="registerBtn" type="button">Register</button>
+      </div>
+      <p id="authFeedback" class="auth-feedback"></p>
+    </div>
+    <div id="userBadge" class="user-badge hidden">
+      <span id="userEmail"></span>
+      <button id="logoutBtn" type="button">Logout</button>
+    </div>
+  </section>
+
+  <div id="appWrapper" class="hidden">
+    <div class="container">
+      <section class="header">
+        <div>
+          <h1>Expense Tracker</h1>
+          <p class="subtitle">Track spending, see totals and category insights in one clear chart.</p>
+        </div>
+        <div class="summary-panel">
+        <div class="summary-card">
+          <strong>Monthly total</strong>
+          <span id="total">$0.00</span>
+        </div>
+        <div class="summary-card">
+          <strong>Transactions</strong>
+          <span id="count">0</span>
+        </div>
+        <div class="summary-card">
+          <strong>Average expense</strong>
+          <span id="average">$0.00</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="budget-input-section">
+      <div class="budget-input-card">
+        <label for="budgetInput">Set Monthly Budget</label>
+        <div class="budget-input-wrapper">
+          <span class="budget-currency">$</span>
+          <input id="budgetInput" type="number" placeholder="1500" min="0" step="0.01">
+          <button id="setBudgetBtn" type="button">Set</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <form id="expense-form">
+        <div class="form-grid">
+          <input id="date" type="date" required>
+          <input id="desc" type="text" placeholder="Description" required>
+          <input id="amount" type="number" step="0.01" placeholder="Amount" required>
+          <select id="category">
+            <option>Other</option>
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Travel</option>
+            <option>Housing</option>
+            <option>Health</option>
+            <option>Entertainment</option>
+            <option>Shopping</option>
+          </select>
+          <button type="submit">Add expense</button>
+        </div>
+      </form>
+
+      <div class="controls">
+        <div class="filter-block">
+          <span class="filter-label">Filter by month</span>
+          <div id="monthFilterButtons" class="month-filter-buttons"></div>
+        </div>
+        <button id="export-csv">Export CSV</button>
+        <button id="clear">Clear All</button>
+      </div>
+    </section>
+
+    <section class="table-card">
+      <table id="expenses-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <section class="chart-panel">
+      <div class="chart-header">
+        <h2>Spend by category</h2>
+        <p class="chart-note">Only one category chart is shown for a clear summary of where your money goes.</p>
+      </div>
+      <canvas id="summaryChart" width="800" height="320"></canvas>
+    </section>
+
+    <section class="budget-panel">
+      <div class="budget-card">
+        <div>
+          <strong>Monthly budget</strong>
+          <p class="budget-label">Planned spending for this month</p>
+        </div>
+        <div class="budget-value">
+          <span id="budgetTarget">$1,500</span>
+          <span id="budgetStatus">On track</span>
+        </div>
+      </div>
+      <div class="budget-progress">
+        <div class="progress-track">
+          <div id="budgetFill" class="progress-fill"></div>
+        </div>
+        <div class="budget-summary">
+          <span id="budgetSpent">$0 spent</span>
+          <span id="budgetRemaining">$1,500 left</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="analysis-panel">
+      <div class="analysis-card">
+        <div class="analysis-header">
+          <h2>Spending analysis</h2>
+          <p class="budget-label">Recommendations on what to add or cut this month.</p>
+        </div>
+        <ul id="analysisList" class="analysis-list">
+          <li>Review subscriptions and recurring fees.</li>
+          <li>Reduce dining out if food spend is high.</li>
+          <li>Track transport costs if trips are frequent.</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <div id="adminPortal" class="hidden">
+    <div class="container">
+      <section class="header">
+        <div>
+          <h1>Admin Portal</h1>
+          <p class="subtitle">Manage all users and expenses system-wide.</p>
+        </div>
+        <button id="backToAppBtn" class="btn-secondary">Back to Expenses</button>
+      </section>
+
+      <div class="admin-grid">
+        <section class="card">
+          <h2>Users</h2>
+          <div id="usersList" class="admin-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>All Expenses</h2>
+          <div class="admin-controls">
+            <input id="adminFilterMonth" type="month" placeholder="Filter by month">
+            <button id="adminExportCsv">Export All CSV</button>
+          </div>
+          <div id="expensesList" class="admin-list"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

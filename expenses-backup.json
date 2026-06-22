@@ -1,0 +1,38 @@
+[
+  {
+    "id": "mqp2j45bb06rj3",
+    "user_id": "ec523d75-c836-413c-ad8c-b5f22785a2b5",
+    "date": "2026-06-22",
+    "desc": "Đi mua sắm",
+    "category": "Shopping",
+    "amount": 40,
+    "created_at": "2026-06-22T10:24:16.325Z"
+  },
+  {
+    "id": "mqozo8h6coi0zx",
+    "user_id": "ec523d75-c836-413c-ad8c-b5f22785a2b5",
+    "date": "2026-06-20",
+    "desc": "đi ăn",
+    "category": "Food",
+    "amount": 4,
+    "created_at": "2026-06-22T09:04:16.368Z"
+  },
+  {
+    "id": "mqozov9yocscni",
+    "user_id": "ec523d75-c836-413c-ad8c-b5f22785a2b5",
+    "date": "2026-06-11",
+    "desc": "đi chơi",
+    "category": "Transport",
+    "amount": 20,
+    "created_at": "2026-06-22T09:04:45.916Z"
+  },
+  {
+    "id": "mqp37nj39ezc2x",
+    "user_id": "ec523d75-c836-413c-ad8c-b5f22785a2b5",
+    "date": "2026-05-19",
+    "desc": "đi ăn",
+    "category": "Food",
+    "amount": 20,
+    "created_at": "2026-06-22T10:43:21.189Z"
+  }
+]
