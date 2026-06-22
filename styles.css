@@ -51,18 +51,29 @@ body {
 
 .auth-form {
   display: grid;
-  gap: 16px;
+  gap: 18px;
+  padding: 18px 0 0;
 }
 
 .auth-fields {
   display: grid;
-  gap: 12px;
+  gap: 14px;
+}
+
+.auth-fields input {
+  min-height: 64px;
+  border-radius: 18px;
+  padding: 0 18px;
+  background: #111827;
+  border: 1px solid var(--border);
+  color: var(--text);
 }
 
 .auth-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  padding-bottom: 12px;
 }
 
 .auth-actions button,
